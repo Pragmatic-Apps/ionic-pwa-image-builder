@@ -1,8 +1,8 @@
-FROM docker:stable-dind
+FROM docker:latest
 LABEL maintainer="pragmatic_apps <hello@pragmatic-apps.de>"
 
-# INSALL NODE
-RUN apk add --update --no-cache nodejs nodejs-npm
+# INSTALL NODE
+RUN apk update && apk add --no-cache nodejs nodejs-npm
 
 # INSTALL IONIC
 RUN npm install -g cordova ionic
