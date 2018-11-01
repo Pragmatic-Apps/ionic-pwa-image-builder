@@ -5,4 +5,5 @@ LABEL maintainer="pragmatic_apps <hello@pragmatic-apps.de>"
 RUN apk update && apk add --no-cache nodejs nodejs-npm
 
 # INSTALL IONIC
-RUN npm install -g cordova ionic
+RUN npm i -g --unsafe-perm cordova ionic && \
+ionic --no-interactive config set -g daemon.updates false
