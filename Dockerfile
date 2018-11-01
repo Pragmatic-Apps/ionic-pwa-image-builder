@@ -5,8 +5,5 @@ LABEL maintainer="pragmatic_apps <hello@pragmatic-apps.de>"
 RUN apk add --update --no-cache git bzip2 openssh-client nodejs nodejs-npm
 
 # INSTALL IONIC
-RUN npm i -g --unsafe-perm cordova ionic && \
+RUN npm i -g --unsafe-perm cordova ionic@4.2.1 && \
 ionic --no-interactive config set -g daemon.updates false
-
-# SET ENV VARS AS THERE ARE SOMETIMES NOT SET
-ENV IONIC_CONFIG_DIRECTORY=~/.ionic
