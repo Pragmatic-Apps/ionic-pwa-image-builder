@@ -14,6 +14,9 @@ image: pragmaticapps/ionic-pwa-image-builder:latest
 stages:
   - deploy
 
+services:
+  - docker:dind
+
 cache:
   untracked: true
   key: "$CI_PROJECT_ID"
@@ -28,7 +31,7 @@ buildpwa:
   only:
     - master
   script:
-    - ionic build
+    - ionic build --prod --service-worker
     - docker build -t $CI_DOCKER_IMAGENAME .
     - docker login  -u $CI_DOCKER_REPO_USERNAME -p $CI_DOCKER_REPO_TOKEN $CI_DOCKER_REPO
     - docker push $CI_DOCKER_REPO/$CI_DOCKER_IMAGENAME
