@@ -2,7 +2,6 @@
 
 This is a simple image we use in our CI process to create ionic PWAs and directly build deployment ready docker images.
 
-This image uses https://hub.docker.com/r/beevelop/ionic - Thx for your work.
 
 ## How to use it?
 

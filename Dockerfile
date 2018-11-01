@@ -1,12 +1,8 @@
-FROM beevelop/ionic:latest
-MAINTAINER hello@pragmatic-apps.de
+FROM docker:stable-dind
+LABEL maintainer="pragmatic_apps <hello@pragmatic-apps.de>"
 
-RUN apt-get update && \
-apt-get install -y apt-transport-https ca-certificates curl software-properties-common && \
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
-add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable" && \
-   apt-get update && apt-get install -y docker-ce && \
-   usermod $(whoami) -G docker -a
+# INSALL NODE
+RUN apk add --update --no-cache nodejs nodejs-npm
+
+# INSTALL IONIC
+RUN npm install -g cordova ionic
